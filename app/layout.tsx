@@ -3,6 +3,7 @@ import Provider from "@/providers/Provider";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import RegisterModal from "./components/modals/RegisterModal";
+import ToasterProvider from "@/providers/ToastProvider";
 
 export const metadata = {
   title: "GVR | Global Vacation Rentals",
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <Provider>
+          <ToasterProvider />
           <RegisterModal />
           <Navbar />
           <div>{children}</div>

@@ -26,10 +26,10 @@ const Button: FC<ButtonProps> = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`relative disabled:opacity-70 disabled:cursor-not-allowed rounded-lg hover:bg-opacity-80 dark:hover:opacity-80 transition w-full text-white ${
+      className={`relative disabled:opacity-70 disabled:cursor-not-allowed rounded-lg hover:bg-opacity-80 dark:hover:opacity-80 transition w-full ${
         outline
           ? "bg-transparent dark:border-emerald-400 dark:text-emerald-400 text-emerald-700 border-emerald-700"
-          : "dark:bg-emerald-700/80 dark:border-emerald-700 bg-emerald-900 border-emerald-900"
+          : "dark:bg-emerald-700/80 border-transparent bg-emerald-900 text-white"
       }
       ${
         small

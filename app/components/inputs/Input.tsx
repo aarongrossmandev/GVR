@@ -39,7 +39,7 @@ const Input: FC<InputProps> = ({
           ${
             errors[id]
               ? "border-rose-500 focus:border-rose-500"
-              : "dark:border-slate-50 border-zinc-900 dark:focus:border-emerald-400 focus:border-emerald-700"
+              : "dark:border-slate-50 border-zinc-800 dark:focus:border-emerald-400 focus:border-emerald-700"
           }
         `}
       />

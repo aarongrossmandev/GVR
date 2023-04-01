@@ -9,6 +9,8 @@ import { FC } from "react";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
+import { toast } from "react-hot-toast";
+import Button from "../Button";
 
 const RegisterModal: FC = () => {
   const registerModal = useRegisterModal();
@@ -35,7 +37,7 @@ const RegisterModal: FC = () => {
         registerModal.onClose();
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("Something went wrong");
       })
       .finally(() => {
         setIsLoading(false);
@@ -73,6 +75,35 @@ const RegisterModal: FC = () => {
     </form>
   );
 
+  const footerContent = (
+    <div className="flex flex-col gap-4 mt-3">
+      <hr />
+      <Button
+        outline
+        label="Continue with Google"
+        icon={FcGoogle}
+        onClick={() => {}}
+      />
+      <Button
+        outline
+        label="Continue with Github"
+        icon={AiFillGithub}
+        onClick={() => {}}
+      />
+      <div className="text-center mt-4 font-light">
+        <div className="flex items-center justify-center gap-x-2">
+          Already have an account?{" "}
+          <button
+            onClick={registerModal.onClose}
+            className="text-emerald-700 dark:text-emerald-400 hover:underline"
+          >
+            Log in
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <Modal
       disabled={isLoading}
@@ -82,6 +113,7 @@ const RegisterModal: FC = () => {
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
+      footer={footerContent}
     />
   );
 };
