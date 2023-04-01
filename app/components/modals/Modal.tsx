@@ -81,7 +81,7 @@ const Modal: FC<ModalProps> = ({
             
           `}
           >
-            <div className="translate h-full lg:h-auto md:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white dark:bg-black outline-none focus:outline-none">
+            <div className="transition h-full lg:h-auto md:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white dark:bg-black outline-none focus:outline-none">
               {/*header*/}
               <div className="flex items-center p-6 rounded-t justify-center relative border-b">
                 <button

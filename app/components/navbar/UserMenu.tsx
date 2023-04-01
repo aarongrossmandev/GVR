@@ -5,10 +5,10 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { ThemeButton } from "./ThemeButton";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 
-interface UserMenuProps {}
-
-const UserMenu: FC<UserMenuProps> = ({}) => {
+const UserMenu: FC = () => {
+  const registerModal = useRegisterModal();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = useCallback(() => {
@@ -23,7 +23,7 @@ const UserMenu: FC<UserMenuProps> = ({}) => {
         </div>
         <button
           onClick={() => {}}
-          className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full dark:hover:bg-emerald-400/60 hover:bg-emerald-900 hover:text-white transition"
+          className="hidden lg:block text-sm font-semibold py-3 px-4 rounded-full dark:hover:bg-emerald-400/60 hover:bg-emerald-900 hover:text-white transition"
         >
           Host Your Home
         </button>
@@ -43,8 +43,8 @@ const UserMenu: FC<UserMenuProps> = ({}) => {
           <ul className="flex flex-col cursor-pointer">
             <>
               <MenuItem onClick={() => {}} label="Login" />
-              <MenuItem onClick={() => {}} label="Sign up" />
-              <li className="px-4 py-3 dark:hover:bg-emerald-400 hover:bg-emerald-900 transition font-semibold w-full">
+              <MenuItem onClick={registerModal.onOpen} label="Sign up" />
+              <li className="px-4 py-3 dark:hover:bg-emerald-400 hover:bg-emerald-900 transition font-semibold w-full block md:hidden">
                 <ThemeButton />
               </li>
             </>
