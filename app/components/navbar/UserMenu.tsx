@@ -47,7 +47,7 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
       </div>
 
       {isOpen && (
-        <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white/80 dark:bg-black/90 overflow-hidden right-0 top-12 text-sm z-40">
+        <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white dark:bg-black overflow-hidden right-0 top-12 text-sm z-40">
           <ul className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>
