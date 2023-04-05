@@ -12,9 +12,11 @@ import Heading from "../Heading";
 import Input from "../inputs/Input";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 const RegisterModal: FC = () => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -42,8 +44,14 @@ const RegisterModal: FC = () => {
       })
       .finally(() => {
         setIsLoading(false);
+        signIn("credentials");
       });
   };
+
+  const toggleModal = useCallback(() => {
+    registerModal.onClose();
+    loginModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <form className="flex flex-col gap-4">
@@ -97,7 +105,7 @@ const RegisterModal: FC = () => {
         <div className="flex items-center justify-center gap-x-2">
           Already have an account?{" "}
           <button
-            onClick={registerModal.onClose}
+            onClick={toggleModal}
             className="text-emerald-700 dark:text-emerald-400 hover:underline"
           >
             Log in

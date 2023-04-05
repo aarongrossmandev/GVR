@@ -11,3 +11,10 @@ body,
 body {
   @apply dark:bg-zinc-900 bg-slate-200 dark:text-slate-100 text-zinc-900;
 }
+
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-pane,
+.leaflet-top {
+  z-index: 0 !important;
+}

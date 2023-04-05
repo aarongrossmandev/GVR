@@ -53,6 +53,11 @@ const LoginModal: FC = () => {
     });
   };
 
+  const toggleModal = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
+
   const bodyContent = (
     <form className="flex flex-col gap-4">
       <Heading title="Good to see you again" subtitle="Login to your account" />
@@ -94,12 +99,12 @@ const LoginModal: FC = () => {
       />
       <div className="text-center mt-4 font-light">
         <div className="flex items-center justify-center gap-x-2">
-          Already have an account?{" "}
+          First time using GVR?{" "}
           <button
-            onClick={loginModal.onClose}
+            onClick={toggleModal}
             className="text-emerald-700 dark:text-emerald-400 hover:underline"
           >
-            Log in
+            Create an account
           </button>
         </div>
       </div>
