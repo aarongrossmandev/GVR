@@ -14,7 +14,7 @@ const Hero: FC<HeroProps> = ({}) => {
         fill
       />
       <Link
-        href="/vacations"
+        href="vacations"
         className="relative disabled:opacity-70 disabled:cursor-not-allowed rounded-full hover:bg-opacity-80 dark:hover:opacity-80 transition dark:bg-emerald-700/80 border-transparent bg-emerald-900 text-white py-2 px-4 text-base font-semibold border-2"
       >
         See All Dream Vacations
