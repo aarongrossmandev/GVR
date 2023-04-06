@@ -7,6 +7,7 @@ import ToasterProvider from "@/providers/ToastProvider";
 import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modals/RentModal";
+import ClientOnly from "@/providers/ClientOnly";
 
 export const metadata = {
   title: "GVR | Global Vacation Rentals",
@@ -28,12 +29,14 @@ export default async function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <Provider>
-          <ToasterProvider />
-          <RegisterModal />
-          <LoginModal />
-          <RentModal />
-          <Navbar currentUser={currentUser} />
-          <div className="pt-[85px]">{children}</div>
+          <ClientOnly>
+            <ToasterProvider />
+            <RegisterModal />
+            <LoginModal />
+            <RentModal />
+            <Navbar currentUser={currentUser} />
+            <div className="pt-[85px]">{children}</div>
+          </ClientOnly>
         </Provider>
       </body>
     </html>

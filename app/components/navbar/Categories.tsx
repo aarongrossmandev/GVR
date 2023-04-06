@@ -18,7 +18,6 @@ import { IoDiamond } from "react-icons/io5";
 import { FaSkiing } from "react-icons/fa";
 import CategoryBox from "../CategoryBox";
 import { usePathname, useSearchParams } from "next/navigation";
-import { AiOutlineEye } from "react-icons/ai";
 
 export const categories = [
   {

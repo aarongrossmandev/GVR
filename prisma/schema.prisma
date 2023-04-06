@@ -49,11 +49,11 @@ model Listing {
   title String
   description String
   imageSrc String
-  multipleImageSrc String[] @default([])
+  multipleImageSrc String[]
   createdAt DateTime @default(now())
   category String
-  amenities String[] @default([])
-  standoutAmenities String[] @default([])
+  amenities String[]
+  standoutAmenities String[]
   roomCount Int
   bedCount Int
   bathroomCount Int
