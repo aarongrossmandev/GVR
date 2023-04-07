@@ -18,7 +18,7 @@ const LikeButton: FC<LikeButtonProps> = ({ listingId, currentUser }) => {
   return (
     <div
       onClick={toggleFavorite}
-      className="relative hover:opacity-80 transition hover:scale-125"
+      className="relative hover:opacity-80 transition hover:scale-125 cursor-pointer"
     >
       <AiOutlineHeart
         size={28}
