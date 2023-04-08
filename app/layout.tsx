@@ -8,6 +8,7 @@ import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
 import RentModal from "./components/modals/RentModal";
 import ClientOnly from "@/providers/ClientOnly";
+import SearchModal from "./components/modals/SearchModal";
 
 export const metadata = {
   title: "GVR | Global Vacation Rentals",
@@ -31,6 +32,7 @@ export default async function RootLayout({
         <Provider>
           <ClientOnly>
             <ToasterProvider />
+            <SearchModal />
             <RegisterModal />
             <LoginModal />
             <RentModal />
