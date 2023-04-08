@@ -63,11 +63,21 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
             {currentUser ? (
               <>
                 <MenuItem
+                  onClick={() => router.push("/vacations")}
+                  label="Vacations"
+                />
+                <MenuItem
                   onClick={() => router.push("/trips")}
                   label="My trips"
                 />
-                <MenuItem onClick={() => {}} label="My favorites" />
-                <MenuItem onClick={() => {}} label="My reservations" />
+                <MenuItem
+                  onClick={() => router.push("/favorites")}
+                  label="My favorites"
+                />
+                <MenuItem
+                  onClick={() => router.push("/reservations")}
+                  label="My reservations"
+                />
                 <MenuItem onClick={() => {}} label="My properties" />
                 <MenuItem onClick={rentModal.onOpen} label="Host your home" />
                 <li className="px-4 py-3 dark:hover:bg-emerald-400 hover:bg-emerald-900 transition font-semibold w-full block md:hidden">
