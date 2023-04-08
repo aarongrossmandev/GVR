@@ -1,14 +1,11 @@
 import { Nunito } from "next/font/google";
 import Provider from "@/providers/Provider";
-import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
-import RegisterModal from "./components/modals/RegisterModal";
 import ToasterProvider from "@/providers/ToastProvider";
-import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
-import RentModal from "./components/modals/RentModal";
 import ClientOnly from "@/providers/ClientOnly";
-import SearchModal from "./components/modals/SearchModal";
+import ModalProvider from "@/providers/ModalProvider";
+import "./globals.css";
 
 export const metadata = {
   title: "GVR | Global Vacation Rentals",
@@ -32,10 +29,7 @@ export default async function RootLayout({
         <Provider>
           <ClientOnly>
             <ToasterProvider />
-            <SearchModal />
-            <RegisterModal />
-            <LoginModal />
-            <RentModal />
+            <ModalProvider />
             <Navbar currentUser={currentUser} />
             <div className="pt-[85px]">{children}</div>
           </ClientOnly>
