@@ -162,16 +162,35 @@ const Categories: FC = ({}) => {
     return null;
   }
 
+  const scrollLeft = () => {
+    var slider = document.getElementById("catSlider");
+    slider.scrollLeft = slider.scrollLeft - 125;
+  };
+
+  const scrollRight = () => {
+    var slider = document.getElementById("catSlider");
+    slider.scrollLeft = slider.scrollLeft + 125;
+  };
+
   return (
     <Container>
       <div className="w-full relative flex items-center">
-        <button className="hidden md:block absolute -right-10 z-10 p-1 hover:shadow-sm hover:shadow-emerald-800 dark:hover:shadow-emerald-400 rounded-full transition">
+        <button
+          onClick={scrollRight}
+          className="hidden md:block absolute -right-10 z-10 p-1 hover:shadow-sm hover:shadow-emerald-800 dark:hover:shadow-emerald-400 rounded-full transition"
+        >
           <BsChevronRight size={22} />
         </button>
-        <button className="hidden md:block absolute -left-10 z-10 p-1 hover:shadow-sm hover:shadow-emerald-800 dark:hover:shadow-emerald-400 rounded-full transition">
+        <button
+          onClick={scrollLeft}
+          className="hidden md:block absolute -left-10 z-10 p-1 hover:shadow-sm hover:shadow-emerald-800 dark:hover:shadow-emerald-400 rounded-full transition"
+        >
           <BsChevronLeft size={22} />
         </button>
-        <div className="pt-4 flex flex-row items-center justify-between overflow-x-auto scrollbar-thin scrollbar-thumb-emerald-300 scrollbar-track-emerald-900 whitespace-nowrap">
+        <div
+          id="catSlider"
+          className="pt-4 flex flex-row items-center justify-between overflow-x-auto md:scrollbar-none scrollbar-thin scrollbar-thumb-emerald-300 scrollbar-track-emerald-900 whitespace-nowrap scroll-smooth"
+        >
           {categories.map((cat) => (
             <CategoryBox
               key={cat.label}
