@@ -59,7 +59,7 @@ const LoginModal: FC = () => {
   }, [loginModal, registerModal]);
 
   const bodyContent = (
-    <form className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <Heading title="Good to see you again" subtitle="Login to your account" />
       <Input
         id="email"
@@ -79,7 +79,7 @@ const LoginModal: FC = () => {
         errors={errors}
         required
       />
-    </form>
+    </div>
   );
 
   const footerContent = (

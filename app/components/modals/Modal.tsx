@@ -101,7 +101,7 @@ const Modal: FC<ModalProps> = ({
                   {secondaryAction && secondaryActionLabel && (
                     <Button
                       outline
-                      type="submit"
+                      type="button"
                       disabled={disabled}
                       label={secondaryActionLabel}
                       onClick={handleSecondaryAction}

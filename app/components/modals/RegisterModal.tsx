@@ -55,7 +55,7 @@ const RegisterModal: FC = () => {
   }, [loginModal, registerModal]);
 
   const bodyContent = (
-    <form className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4">
       <Heading title="GVR welcomes you!" subtitle="create an account" />
       <Input
         id="email"
@@ -82,7 +82,7 @@ const RegisterModal: FC = () => {
         errors={errors}
         required
       />
-    </form>
+    </div>
   );
 
   const footerContent = (

@@ -24,10 +24,10 @@ const ListingReservation: FC<ListingReservationProps> = ({
   disabled,
 }) => {
   return (
-    <div className="bg-white dark:bg-zinc-500 rounded-xl border border-neutral-200 dark:border-slate-500 overflow-hidden">
+    <div className="bg-white rounded-xl border border-neutral-200 dark:border-slate-500 overflow-hidden text-zinc-900">
       <div className="flex flex-row items-center gap-1 p-4">
-        <div className="text-2xl font-semibold"> $ {price}</div>
-        <div className="font-light">/night</div>
+        <p className="text-2xl font-semibold"> $ {price}</p>
+        <p className="text-2xl font-semibold"> / night</p>
       </div>
       <hr />
       <Calender

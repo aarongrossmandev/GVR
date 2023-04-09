@@ -20,6 +20,8 @@ import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { amenitiesItems } from "@/app/constants/amenitiesItems";
 import { standoutAmenitiesItems } from "@/app/constants/standoutAmenitiesItems copy";
+import { IconType } from "react-icons";
+import TextArea from "../inputs/TextArea";
 
 enum STEPS {
   CATEGORY = 0,
@@ -33,12 +35,13 @@ enum STEPS {
   PRICE = 7,
 }
 
-const RentModal: FC = ({}) => {
+const RentModal: FC = ({ icon }: any) => {
   const router = useRouter();
   const rentModal = useRentModal();
 
   const [step, setStep] = useState(STEPS.CATEGORY);
   const [isLoading, setIsLoading] = useState(false);
+  const [selected, setSelected] = useState(false);
 
   const {
     register,
@@ -64,6 +67,8 @@ const RentModal: FC = ({}) => {
       description: "",
     },
   });
+
+  // bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:peer-checked:bg-emerald-700/10 dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-emerald-700 hover:text-emerald-700 dark:peer-checked:text-emerald-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700
 
   const category = watch("category");
   const location = watch("location");
@@ -217,20 +222,28 @@ const RentModal: FC = ({}) => {
           title="Amenities"
           subtitle="What basic amenities does your place have?"
         />
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-track-emerald-900 scrollbar-thumb-emerald-300">
-          {amenitiesItems.map((item: any) => (
-            <div key={item.label} className="col-span-1 text-center">
-              <AmenitiesInput
-                value={amenities}
-                onClick={(amenities) =>
-                  setCustomValue("amenities", [amenities])
-                }
-                label={item.label}
-                icon={item.icon}
+        <ul className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-track-emerald-900 scrollbar-thumb-emerald-300">
+          {amenitiesItems.map((amenities) => (
+            <li key={amenities.label}>
+              <input
+                type="checkbox"
+                id={amenities.label}
+                value={amenities.label}
+                {...register("amenities")}
+                className="appearance-none peer"
               />
-            </div>
+              <label
+                htmlFor={amenities.label}
+                className="flex items-center justify-center w-11/12 p-5 border-2 rounded-lg cursor-pointer hover:text-emerald-800 dark:hover:text-emerald-300 hover:border-emerald-700 dark:hover:border-emerald-300 hover:bg-emerald-300/10 dark:hover:bg-emerald-900/20 peer-checked:shadow-lg peer-checked:shadow-emerald-800 dark:peer-checked:shadow-emerald-300 dark:peer-checked:bg-emerald-800/20 peer-checked:bg-emerald-300/10"
+              >
+                <div className="flex flex-col justify-center items-center">
+                  <AmenitiesInput icon={amenities.icon} />
+                  <div className="w-full text-sm">{amenities.label}</div>
+                </div>
+              </label>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     );
   }
@@ -242,20 +255,28 @@ const RentModal: FC = ({}) => {
           title="Standout Amenities"
           subtitle="What amenities do you have that standout?"
         />
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-track-emerald-900 scrollbar-thumb-emerald-300">
-          {standoutAmenitiesItems.map((item: any) => (
-            <div key={item.label} className="col-span-1 text-center">
-              <StandoutAmenitiesInput
-                onClick={(standoutAmenities) =>
-                  setCustomValue("standoutAmenities", standoutAmenities)
-                }
-                value={standoutAmenities}
-                label={item.label}
-                icon={item.icon}
+        <ul className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-track-emerald-900 scrollbar-thumb-emerald-300">
+          {standoutAmenitiesItems.map((items) => (
+            <li key={items.label}>
+              <input
+                type="checkbox"
+                id={items.label}
+                value={items.label}
+                {...register("standoutAmenities")}
+                className="appearance-none peer"
               />
-            </div>
+              <label
+                htmlFor={items.label}
+                className="flex items-center justify-center w-11/12 p-5 border-2 rounded-lg cursor-pointer hover:text-emerald-800 dark:hover:text-emerald-300 hover:border-emerald-700 dark:hover:border-emerald-300 hover:bg-emerald-300/10 dark:hover:bg-emerald-900/20 peer-checked:shadow-lg peer-checked:shadow-emerald-800 dark:peer-checked:shadow-emerald-300 dark:peer-checked:bg-emerald-800/20 peer-checked:bg-emerald-300/10"
+              >
+                <div className="flex flex-col justify-center items-center">
+                  <StandoutAmenitiesInput icon={items.icon} />
+                  <div className="w-full text-sm">{items.label}</div>
+                </div>
+              </label>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     );
   }
@@ -299,25 +320,26 @@ const RentModal: FC = ({}) => {
           title="How would you describe your place"
           subtitle="Include as many details as you would like"
         />
-        <Input
-          id="title"
-          label="Title"
-          disabled={isLoading}
-          register={register}
-          errors={errors}
-          type="text"
-          required
-        />
-        <hr />
-        <Input
-          id="description"
-          label="Description"
-          disabled={isLoading}
-          register={register}
-          errors={errors}
-          type="text"
-          required
-        />
+        <div className="overflow-y-auto scrollbar-thin scrollbar-track-emerald-900 scrollbar-thumb-emerald-300 gap-8">
+          <Input
+            id="title"
+            label="Title"
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+            type="text"
+            required
+          />
+          <hr />
+          <TextArea
+            id="description"
+            label="Description"
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+            required
+          />
+        </div>
       </div>
     );
   }

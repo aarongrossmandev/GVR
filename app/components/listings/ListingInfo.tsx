@@ -6,6 +6,9 @@ import { IconType } from "react-icons";
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
 import dynamic from "next/dynamic";
+import { BsDoorOpenFill } from "react-icons/bs";
+import { MdOutlineFamilyRestroom } from "react-icons/md";
+import { GiBathtub, GiBed } from "react-icons/gi";
 
 const Map = dynamic(() => import("../Map"), {
   ssr: false,
@@ -46,12 +49,36 @@ const ListingInfo: FC<ListingInfoProps> = ({
           <p>Hosted by {user?.name}</p>
           <Avatar src={user?.image} />
         </div>
-        <div className="flex flex-row items-center gap-4 font-light text-neutral-500 dark:text-slate-200">
-          <p>{guestCount} guests</p>
-          <p>{roomCount} rooms</p>
-          <p>{bedCount} beds</p>
-          <p>{bathroomCount} bathrooms</p>
+        <div className="flex flex-row items-center gap-4 font-light text-neutral-500 dark:text-slate-200 text-base md:text-lg">
+          <p className="flex items-center">
+            {guestCount} guests{" "}
+            <MdOutlineFamilyRestroom className="ml-1" size={18} />{" "}
+          </p>
+          <p className="flex items-center">
+            {roomCount} rooms <BsDoorOpenFill className="ml-1" size={17} />
+          </p>
+          <p className="flex items-center">
+            {bedCount} beds <GiBed className="ml-1 mt-1" size={22} />{" "}
+          </p>
+          <p className="flex items-center">
+            {bathroomCount} bathrooms{" "}
+            <GiBathtub className="ml-1 mb-1" size={20} />{" "}
+          </p>
         </div>
+      </div>
+      <hr />
+      <h5 className="font-bold text-2xl">Basic Amenities</h5>
+      <div className="grid grid-cols-2 leading-loose">
+        {amenities.map((am, idx) => (
+          <p key={idx}>{am}</p>
+        ))}
+      </div>
+      <hr />
+      <h5 className="font-bold text-2xl">What this place offers</h5>
+      <div className="grid grid-cols-2 md:grid-cols-3 tracking-wider leading-loose">
+        {standoutAmenities.map((sm) => (
+          <p key={sm}>{sm}</p>
+        ))}
       </div>
       <hr />
       {category && (
@@ -62,11 +89,14 @@ const ListingInfo: FC<ListingInfoProps> = ({
         />
       )}
       <hr />
-      <p className="text-lg font-light text-neutral-500 dark:text-slate-200">
+      <h4 className="font-bold text-2xl tracking-wider">About this property</h4>
+      <p className="text-lg font-light text-neutral-500 dark:text-slate-200 tracking-wider">
         {description}
       </p>
       <hr />
-      <h5 className="font-semibold text-2xl">Where you&apos;ll be</h5>
+      <h5 className="font-semibold text-2xl tracking-wider">
+        Where you&apos;ll be
+      </h5>
       <Map center={coordinates} />
     </div>
   );

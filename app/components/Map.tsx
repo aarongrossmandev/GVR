@@ -24,7 +24,7 @@ const Map: FC<MapProps> = ({ center }) => {
     <MapContainer
       center={(center as L.LatLngExpression) || [51, -0.09]}
       zoom={center ? 8 : 4}
-      scrollWheelZoom={true}
+      scrollWheelZoom={false}
       className="h-[35vh] rounded-lg"
     >
       <TileLayer

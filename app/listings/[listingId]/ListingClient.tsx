@@ -13,6 +13,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import ListingReservation from "@/app/components/listings/ListingReservation";
 import { Range } from "react-date-range";
+import Map from "@/app/components/Map";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -100,7 +101,7 @@ const ListingClient: FC<ListingClientProps> = ({
 
   return (
     <Container>
-      <main className="max-w-screen-lg mx-auto pt-6">
+      <main className="max-w-screen-2xl mx-auto pt-6 pb-6">
         <div className="flex flex-col gap-6">
           <ListingHead
             title={listing.title}
@@ -136,6 +137,7 @@ const ListingClient: FC<ListingClientProps> = ({
           </div>
         </div>
       </main>
+      <div className="w-full"></div>
     </Container>
   );
 };

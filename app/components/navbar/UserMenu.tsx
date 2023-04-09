@@ -91,6 +91,10 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
               </>
             ) : (
               <>
+                <MenuItem
+                  onClick={() => router.push("/vacations")}
+                  label="Vacations"
+                />
                 <MenuItem onClick={loginModal.onOpen} label="Login" />
                 <MenuItem onClick={registerModal.onOpen} label="Sign up" />
                 <li className="px-4 py-3 dark:hover:bg-emerald-400 hover:bg-emerald-900 transition font-semibold w-full block md:hidden">

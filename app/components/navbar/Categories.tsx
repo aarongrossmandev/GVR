@@ -1,45 +1,83 @@
 "use client";
 import { FC } from "react";
 import Container from "../Container";
-import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
+import { TbBeach, TbBuildingCottage } from "react-icons/tb";
 import {
   GiBarn,
-  GiCactus,
   GiIsland,
-  GiWindmill,
-  GiBoatFishing,
   GiCastle,
-  GiCaveEntrance,
   GiForestCamp,
+  GiWoodCabin,
+  GiMountainRoad,
+  GiPostOffice,
+  GiFamilyHouse,
+  GiSpeedBoat,
 } from "react-icons/gi";
-import { MdOutlineVilla } from "react-icons/md";
-import { BsSnow } from "react-icons/bs";
-import { IoDiamond } from "react-icons/io5";
-import { FaSkiing } from "react-icons/fa";
+import {
+  MdBungalow,
+  MdChalet,
+  MdFreeBreakfast,
+  MdOutlineCabin,
+  MdOutlineVilla,
+} from "react-icons/md";
+import {
+  BsChevronLeft,
+  BsChevronRight,
+  BsFillBuildingsFill,
+  BsFillHouseFill,
+  BsHousesFill,
+} from "react-icons/bs";
+import { FaCaravan, FaSkiing } from "react-icons/fa";
+import { RiHotelFill } from "react-icons/ri";
 import CategoryBox from "../CategoryBox";
 import { usePathname, useSearchParams } from "next/navigation";
+import { IoIosBoat } from "react-icons/io";
 
 export const categories = [
   {
-    label: "Beach",
-    icon: TbBeach,
+    label: "Houses",
+    icon: BsFillHouseFill,
     description: "This property is close to the beach",
   },
-
   {
-    label: "Modern",
+    label: "Condos/Apartments",
+    icon: BsFillBuildingsFill,
+    description: "This is a condo or apartment",
+  },
+  {
+    label: "Villas",
     icon: MdOutlineVilla,
     description: "This is a modern property",
   },
   {
-    label: "Countryside",
-    icon: TbMountain,
+    label: "Castles",
+    icon: GiCastle,
+    description: "This property is an ancient castle",
+  },
+  {
+    label: "Country Houses",
+    icon: GiMountainRoad,
     description: "This property is in the countryside",
   },
   {
-    label: "Pools",
-    icon: TbPool,
+    label: "Studios",
+    icon: GiPostOffice,
+    description: "This is a studio",
+  },
+  {
+    label: "Cottages",
+    icon: TbBuildingCottage,
+    description: "Cottage",
+  },
+  {
+    label: "Cabins",
+    icon: MdOutlineCabin,
     description: "This is property has a beautiful pool",
+  },
+  {
+    label: "Bungalows",
+    icon: MdBungalow,
+    description: "Bungalow",
   },
   {
     label: "Islands",
@@ -47,8 +85,33 @@ export const categories = [
     description: "This property is on an island",
   },
   {
-    label: "Lake",
-    icon: GiBoatFishing,
+    label: "Townhouses",
+    icon: GiFamilyHouse,
+    description: "This property is a townhouse",
+  },
+  {
+    label: "Hotels",
+    icon: RiHotelFill,
+    description: "These are hotels",
+  },
+  {
+    label: "Guest houses",
+    icon: BsHousesFill,
+    description: "This is a guest house",
+  },
+  {
+    label: "Caravans",
+    icon: FaCaravan,
+    description: "This is a caravan place",
+  },
+  {
+    label: "Chalets",
+    icon: MdChalet,
+    description: "Chalet",
+  },
+  {
+    label: "Lodges",
+    icon: GiWoodCabin,
     description: "This property is near a lake",
   },
   {
@@ -57,14 +120,14 @@ export const categories = [
     description: "This property has skiing activies",
   },
   {
-    label: "Castles",
-    icon: GiCastle,
-    description: "This property is an ancient castle",
+    label: "Beach Houses",
+    icon: TbBeach,
+    description: "This is a house near or on the beach",
   },
   {
-    label: "Caves",
-    icon: GiCaveEntrance,
-    description: "This property is in a spooky cave",
+    label: "Bed & Breakfasts",
+    icon: MdFreeBreakfast,
+    description: "This property is a bed and breakfast",
   },
   {
     label: "Camping",
@@ -72,24 +135,19 @@ export const categories = [
     description: "This property offers camping activities",
   },
   {
-    label: "Arctic",
-    icon: BsSnow,
-    description: "This property is in arctic environment",
+    label: "Yachts",
+    icon: IoIosBoat,
+    description: "This is a yacht rental",
   },
   {
-    label: "Desert",
-    icon: GiCactus,
-    description: "This property is in the desert",
+    label: "Boats",
+    icon: GiSpeedBoat,
+    description: "House boat rentals",
   },
   {
     label: "Barns",
     icon: GiBarn,
     description: "This property is in a barn",
-  },
-  {
-    label: "Lux",
-    icon: IoDiamond,
-    description: "This property is brand new and luxurious",
   },
 ];
 
@@ -106,15 +164,23 @@ const Categories: FC = ({}) => {
 
   return (
     <Container>
-      <div className="pt-4 flex flex-row items-center justify-between overflow-x-auto scrollbar-thin scrollbar-thumb-emerald-300 scrollbar-track-emerald-900">
-        {categories.map((cat) => (
-          <CategoryBox
-            key={cat.label}
-            label={cat.label}
-            selected={category === cat.label}
-            icon={cat.icon}
-          />
-        ))}
+      <div className="w-full relative flex items-center">
+        <button className="hidden md:block absolute -right-10 z-10 p-1 hover:shadow-sm hover:shadow-emerald-800 dark:hover:shadow-emerald-400 rounded-full transition">
+          <BsChevronRight size={22} />
+        </button>
+        <button className="hidden md:block absolute -left-10 z-10 p-1 hover:shadow-sm hover:shadow-emerald-800 dark:hover:shadow-emerald-400 rounded-full transition">
+          <BsChevronLeft size={22} />
+        </button>
+        <div className="pt-4 flex flex-row items-center justify-between overflow-x-auto scrollbar-thin scrollbar-thumb-emerald-300 scrollbar-track-emerald-900 whitespace-nowrap">
+          {categories.map((cat) => (
+            <CategoryBox
+              key={cat.label}
+              label={cat.label}
+              selected={category === cat.label}
+              icon={cat.icon}
+            />
+          ))}
+        </div>
       </div>
     </Container>
   );
