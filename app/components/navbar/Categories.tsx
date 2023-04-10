@@ -176,16 +176,16 @@ const Categories: FC = ({}) => {
 
   return (
     <Container>
-      <div className="w-full relative flex items-center">
+      <div className="w-11/12 mx-auto md:w-full relative flex items-center">
         <button
           onClick={scrollRight}
-          className="hidden md:block absolute -right-10 z-10 p-1 hover:shadow-sm hover:shadow-emerald-800 dark:hover:shadow-emerald-400 rounded-full transition"
+          className="absolute -right-10 z-10 p-1 hover:shadow-sm hover:shadow-emerald-800 dark:hover:shadow-emerald-400 rounded-full transition"
         >
           <BsChevronRight size={22} />
         </button>
         <button
           onClick={scrollLeft}
-          className="hidden md:block absolute -left-10 z-10 p-1 hover:shadow-sm hover:shadow-emerald-800 dark:hover:shadow-emerald-400 rounded-full transition"
+          className="absolute -left-10 z-10 p-1 hover:shadow-sm hover:shadow-emerald-800 dark:hover:shadow-emerald-400 rounded-full transition"
         >
           <BsChevronLeft size={22} />
         </button>
