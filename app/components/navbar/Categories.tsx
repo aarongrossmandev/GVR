@@ -1,5 +1,5 @@
 "use client";
-import { FC } from "react";
+import { FC, useCallback, useState } from "react";
 import Container from "../Container";
 import { TbBeach, TbBuildingCottage } from "react-icons/tb";
 import {
@@ -32,6 +32,7 @@ import { RiHotelFill } from "react-icons/ri";
 import CategoryBox from "../CategoryBox";
 import { usePathname, useSearchParams } from "next/navigation";
 import { IoIosBoat } from "react-icons/io";
+import { useRef } from "react";
 
 export const categories = [
   {
@@ -152,6 +153,7 @@ export const categories = [
 ];
 
 const Categories: FC = ({}) => {
+  const [slide, setSlide] = useState(false);
   const params = useSearchParams();
   const category = params?.get("category");
   const pathname = usePathname();
@@ -164,12 +166,12 @@ const Categories: FC = ({}) => {
 
   const scrollLeft = () => {
     var slider = document.getElementById("catSlider");
-    slider.scrollLeft = slider.scrollLeft - 125;
+    slider!.scrollLeft = slider!.scrollLeft - 125;
   };
 
   const scrollRight = () => {
     var slider = document.getElementById("catSlider");
-    slider.scrollLeft = slider.scrollLeft + 125;
+    slider!.scrollLeft = slider!.scrollLeft + 125;
   };
 
   return (
