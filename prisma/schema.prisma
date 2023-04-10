@@ -49,7 +49,10 @@ model Listing {
   title String
   description String
   imageSrc String
-  multipleImageSrc String[]
+  multipleImageSrc1 String?
+  multipleImageSrc2 String?
+  multipleImageSrc3 String?
+  multipleImageSrc4 String?
   createdAt DateTime @default(now())
   category String
   amenities String[]

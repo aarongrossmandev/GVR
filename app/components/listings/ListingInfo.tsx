@@ -6,9 +6,35 @@ import { IconType } from "react-icons";
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
 import dynamic from "next/dynamic";
-import { BsDoorOpenFill } from "react-icons/bs";
-import { MdOutlineFamilyRestroom } from "react-icons/md";
-import { GiBathtub, GiBed } from "react-icons/gi";
+import { BsDoorOpenFill, BsSnow2 } from "react-icons/bs";
+import {
+  MdOutdoorGrill,
+  MdOutlineComputer,
+  MdOutlineDeck,
+  MdOutlineFamilyRestroom,
+  MdOutlineHotTub,
+  MdOutlineKitchen,
+  MdOutlinePool,
+  MdOutlineSnowboarding,
+} from "react-icons/md";
+import {
+  GiBathtub,
+  GiBed,
+  GiFireBowl,
+  GiFireplace,
+  GiHarborDock,
+  GiOfficeChair,
+  GiPingPongBat,
+  GiPoolTableCorner,
+  GiTheater,
+} from "react-icons/gi";
+import { AiOutlineCar, AiOutlineWifi } from "react-icons/ai";
+import { CgSmartHomeWashMachine } from "react-icons/cg";
+import { ImMeter2 } from "react-icons/im";
+import { FiMonitor } from "react-icons/fi";
+import { TbLayoutBoard } from "react-icons/tb";
+import { IoBarbellOutline } from "react-icons/io5";
+import { FaUmbrellaBeach } from "react-icons/fa";
 
 const Map = dynamic(() => import("../Map"), {
   ssr: false,
@@ -70,14 +96,41 @@ const ListingInfo: FC<ListingInfoProps> = ({
       <h5 className="font-bold text-2xl">Basic Amenities</h5>
       <div className="grid grid-cols-2 leading-loose">
         {amenities.map((am, idx) => (
-          <p key={idx}>{am}</p>
+          <p className="flex flex-row items-center gap-x-1" key={idx}>
+            {am === "Kitchen" && <MdOutlineKitchen size={20} />}
+            {am === "Wifi" && <AiOutlineWifi size={20} />}
+            {am === "Washer" && <CgSmartHomeWashMachine size={20} />}
+            {am === "Free parking" && <AiOutlineCar size={20} />}
+            {am === "Paid parking" && <ImMeter2 size={20} />}
+            {am === "Air conditioning" && <BsSnow2 size={20} />}
+            {am === "Office space" && <GiOfficeChair size={20} />}
+            {am === "Television" && <FiMonitor size={20} />}
+            {am === "Computer" && <MdOutlineComputer size={20} />}
+            {am}
+          </p>
         ))}
       </div>
       <hr />
       <h5 className="font-bold text-2xl">What this place offers</h5>
       <div className="grid grid-cols-2 md:grid-cols-3 tracking-wider leading-loose">
         {standoutAmenities.map((sm) => (
-          <p key={sm}>{sm}</p>
+          <p className="flex flex-row items-center gap-x-1" key={sm}>
+            {sm === "Swimming pool" && <MdOutlinePool size={20} />}
+            {sm === "Hot tub" && <MdOutlineHotTub size={20} />}
+            {sm === "Patio" && <TbLayoutBoard size={20} />}
+            {sm === "Outdoor dining" && <MdOutlineDeck size={20} />}
+            {sm === "Grill" && <MdOutdoorGrill size={20} />}
+            {sm === "Firepit" && <GiFireBowl size={20} />}
+            {sm === "Pool table" && <GiPoolTableCorner size={20} />}
+            {sm === "Ping-pong table" && <GiPingPongBat size={20} />}
+            {sm === "Indoor theater" && <GiTheater size={20} />}
+            {sm === "Fireplace" && <GiFireplace size={20} />}
+            {sm === "Gym" && <IoBarbellOutline size={20} />}
+            {sm === "Beach access" && <FaUmbrellaBeach size={20} />}
+            {sm === "Lake access" && <GiHarborDock size={20} />}
+            {sm === "Ski/Snowboarding" && <MdOutlineSnowboarding size={20} />}
+            {sm}
+          </p>
         ))}
       </div>
       <hr />

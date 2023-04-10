@@ -11,6 +11,10 @@ import { useRouter } from "next/navigation";
 interface ListingHeadProps {
   title: string;
   imageSrc: string;
+  multipleImageSrc1?: string;
+  multipleImageSrc2?: string;
+  multipleImageSrc3?: string;
+  multipleImageSrc4?: string;
   locationValue: string;
   id: string;
   currentUser?: SafeUser | null;
@@ -19,6 +23,10 @@ interface ListingHeadProps {
 const ListingHead: FC<ListingHeadProps> = ({
   id,
   imageSrc,
+  multipleImageSrc1,
+  multipleImageSrc2,
+  multipleImageSrc3,
+  multipleImageSrc4,
   locationValue,
   title,
   currentUser,
@@ -39,12 +47,49 @@ const ListingHead: FC<ListingHeadProps> = ({
         >
           <MdArrowBack className="text-center" size={28} />
         </button>
-        <Image
-          src={imageSrc}
-          alt={title + "image"}
-          fill
-          className="object-cover w-full"
-        />
+        <div className="flex flex-row flex-wrap">
+          <div className="flex-1">
+            <Image
+              src={imageSrc}
+              alt={title + "image"}
+              fill
+              className="object-cover w-full"
+            />
+          </div>
+          <div className="flex flex-col">
+            <Image
+              src={multipleImageSrc1 ?? ""}
+              alt=""
+              fill
+              className="object-cover w-full"
+            />
+
+            {multipleImageSrc2 && (
+              <Image
+                src={multipleImageSrc2}
+                alt=""
+                fill
+                className="object-cover w-full"
+              />
+            )}
+            {multipleImageSrc3 && (
+              <Image
+                src={multipleImageSrc3}
+                alt=""
+                fill
+                className="object-cover w-full"
+              />
+            )}
+            {multipleImageSrc4 && (
+              <Image
+                src={multipleImageSrc4}
+                alt=""
+                fill
+                className="object-cover w-full"
+              />
+            )}
+          </div>
+        </div>
         <div className="absolute top-5 right-5">
           <LikeButton listingId={id} currentUser={currentUser} />
         </div>

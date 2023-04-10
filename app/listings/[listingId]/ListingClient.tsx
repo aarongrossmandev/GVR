@@ -6,14 +6,12 @@ import ListingInfo from "@/app/components/listings/ListingInfo";
 import { categories } from "@/app/components/navbar/Categories";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
-import { Reservation } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import ListingReservation from "@/app/components/listings/ListingReservation";
 import { Range } from "react-date-range";
-import Map from "@/app/components/Map";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -106,6 +104,10 @@ const ListingClient: FC<ListingClientProps> = ({
           <ListingHead
             title={listing.title}
             imageSrc={listing.imageSrc}
+            multipleImageSrc1={listing.multipleImageSrc1 ?? ""}
+            multipleImageSrc2={listing.multipleImageSrc2 ?? ""}
+            multipleImageSrc3={listing.multipleImageSrc3 ?? ""}
+            multipleImageSrc4={listing.multipleImageSrc4 ?? ""}
             locationValue={listing.locationValue}
             id={listing.id}
             currentUser={currentUser}

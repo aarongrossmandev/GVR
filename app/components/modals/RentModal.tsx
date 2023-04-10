@@ -19,8 +19,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { amenitiesItems } from "@/app/constants/amenitiesItems";
-import { standoutAmenitiesItems } from "@/app/constants/standoutAmenitiesItems copy";
-import { IconType } from "react-icons";
+import { standoutAmenitiesItems } from "@/app/constants/standoutAmenitiesItems";
 import TextArea from "../inputs/TextArea";
 
 enum STEPS {
@@ -30,9 +29,9 @@ enum STEPS {
   AMENITIES = 3,
   STANDOUTAMENITIES = 4,
   COVERIMAGE = 5,
-  // IMAGES = 6,
-  DESCRIPTION = 6,
-  PRICE = 7,
+  IMAGES = 6,
+  DESCRIPTION = 7,
+  PRICE = 8,
 }
 
 const RentModal: FC = ({ icon }: any) => {
@@ -59,7 +58,10 @@ const RentModal: FC = ({ icon }: any) => {
       bedCount: 1,
       bathroomCount: 1,
       imageSrc: "",
-      // multipleImageSrc: [],
+      multipleImageSrc1: "",
+      multipleImageSrc2: "",
+      multipleImageSrc3: "",
+      multipleImageSrc4: "",
       amenities: [],
       standoutAmenities: [],
       price: 1,
@@ -76,10 +78,11 @@ const RentModal: FC = ({ icon }: any) => {
   const roomCount = watch("roomCount");
   const bedCount = watch("bedCount");
   const bathroomCount = watch("bathroomCount");
-  const amenities = watch("amenities");
-  const standoutAmenities = watch("standoutAmenities");
   const imageSrc = watch("imageSrc");
-  // const multipleImageSrc = watch("multipleImageSrc");
+  const multipleImageSrc1 = watch("multipleImageSrc1");
+  const multipleImageSrc2 = watch("multipleImageSrc2");
+  const multipleImageSrc3 = watch("multipleImageSrc3");
+  const multipleImageSrc4 = watch("multipleImageSrc4");
 
   const Map = useMemo(
     () =>
@@ -296,22 +299,34 @@ const RentModal: FC = ({ icon }: any) => {
     );
   }
 
-  // if (step === STEPS.IMAGES) {
-  //   bodyContent = (
-  //     <div className="flex flex-col gap-4">
-  //       <Heading
-  //         title="Additional Images"
-  //         subtitle="add more images to show off your place"
-  //       />
-  //       <div className="grid grid-cols-1 md:grid-cols-2 col-span-1">
-  //         <ImagesUpload
-  //           value={multipleImageSrc}
-  //           onChange={(value) => setCustomValue("multipleImageSrc", value)}
-  //         />
-  //       </div>
-  //     </div>
-  //   );
-  // }
+  if (step === STEPS.IMAGES) {
+    bodyContent = (
+      <div className="flex flex-col gap-4">
+        <Heading
+          title="Additional Images"
+          subtitle="add more images to show off your place"
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 col-span-1">
+          <ImagesUpload
+            value={multipleImageSrc1}
+            onChange={(value) => setCustomValue("multipleImageSrc1", value)}
+          />
+          <ImagesUpload
+            value={multipleImageSrc2}
+            onChange={(value) => setCustomValue("multipleImageSrc2", value)}
+          />
+          <ImagesUpload
+            value={multipleImageSrc3}
+            onChange={(value) => setCustomValue("multipleImageSrc3", value)}
+          />
+          <ImagesUpload
+            value={multipleImageSrc4}
+            onChange={(value) => setCustomValue("multipleImageSrc4", value)}
+          />
+        </div>
+      </div>
+    );
+  }
 
   if (step === STEPS.DESCRIPTION) {
     bodyContent = (
