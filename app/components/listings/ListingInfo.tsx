@@ -75,7 +75,7 @@ const ListingInfo: FC<ListingInfoProps> = ({
           <p>Hosted by {user?.name}</p>
           <Avatar src={user?.image} />
         </div>
-        <div className="flex flex-row items-center gap-4 font-light text-neutral-500 dark:text-slate-200 text-base md:text-lg">
+        <div className="flex flex-row items-center gap-4 font-light text-neutral-800 dark:text-slate-200 text-base md:text-lg">
           <p className="flex items-center">
             {guestCount} guests{" "}
             <MdOutlineFamilyRestroom className="ml-1" size={18} />{" "}
@@ -92,7 +92,7 @@ const ListingInfo: FC<ListingInfoProps> = ({
           </p>
         </div>
       </div>
-      <hr />
+      <hr className="bg-red-500" />
       <h5 className="font-bold text-2xl">Basic Amenities</h5>
       <div className="grid grid-cols-2 leading-loose">
         {amenities.map((am, idx) => (
@@ -119,7 +119,7 @@ const ListingInfo: FC<ListingInfoProps> = ({
             {sm === "Hot tub" && <MdOutlineHotTub size={20} />}
             {sm === "Patio" && <TbLayoutBoard size={20} />}
             {sm === "Outdoor dining" && <MdOutlineDeck size={20} />}
-            {sm === "Grill" && <MdOutdoorGrill size={20} />}
+            {sm === "Grill" && <MdOutdoorGrill size={22} />}
             {sm === "Firepit" && <GiFireBowl size={20} />}
             {sm === "Pool table" && <GiPoolTableCorner size={20} />}
             {sm === "Ping-pong table" && <GiPingPongBat size={20} />}

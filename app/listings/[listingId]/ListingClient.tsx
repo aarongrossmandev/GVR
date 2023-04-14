@@ -12,6 +12,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import ListingReservation from "@/app/components/listings/ListingReservation";
 import { Range } from "react-date-range";
+import ListingImages from "@/app/components/listings/ListingImages";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -104,15 +105,16 @@ const ListingClient: FC<ListingClientProps> = ({
           <ListingHead
             title={listing.title}
             imageSrc={listing.imageSrc}
-            multipleImageSrc1={listing.multipleImageSrc1 ?? ""}
-            multipleImageSrc2={listing.multipleImageSrc2 ?? ""}
-            multipleImageSrc3={listing.multipleImageSrc3 ?? ""}
-            multipleImageSrc4={listing.multipleImageSrc4 ?? ""}
+            multipleImagesOne={listing.multipleImagesOne || ""}
+            multipleImagesTwo={listing.multipleImagesTwo || ""}
+            multipleImagesThree={listing.multipleImagesThree || ""}
+            multipleImagesFour={listing.multipleImagesFour || ""}
             locationValue={listing.locationValue}
             id={listing.id}
             currentUser={currentUser}
           />
-          <div className="grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6">
+
+          <div className="grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6 px-2 md:px-0">
             <ListingInfo
               user={listing.user}
               category={category}
@@ -139,7 +141,6 @@ const ListingClient: FC<ListingClientProps> = ({
           </div>
         </div>
       </main>
-      <div className="w-full"></div>
     </Container>
   );
 };

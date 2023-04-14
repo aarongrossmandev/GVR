@@ -6,7 +6,12 @@ import { useState, useMemo } from "react";
 import Heading from "../Heading";
 import { categories } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import {
+  FieldValues,
+  SubmitHandler,
+  useForm,
+  useFieldArray,
+} from "react-hook-form";
 import CountrySelect from "../inputs/CountrySelect";
 import dynamic from "next/dynamic";
 import Counter from "../inputs/Counter";
@@ -21,6 +26,9 @@ import { useRouter } from "next/navigation";
 import { amenitiesItems } from "@/app/constants/amenitiesItems";
 import { standoutAmenitiesItems } from "@/app/constants/standoutAmenitiesItems";
 import TextArea from "../inputs/TextArea";
+import ImagesUploadTwo from "../inputs/ImagesUploadTwo";
+import ImagesUploadThree from "../inputs/ImagesUploadThree";
+import ImagesUploadFour from "../inputs/ImagesUploadFour";
 
 enum STEPS {
   CATEGORY = 0,
@@ -34,13 +42,12 @@ enum STEPS {
   PRICE = 8,
 }
 
-const RentModal: FC = ({ icon }: any) => {
+const RentModal: FC = () => {
   const router = useRouter();
   const rentModal = useRentModal();
 
   const [step, setStep] = useState(STEPS.CATEGORY);
   const [isLoading, setIsLoading] = useState(false);
-  const [selected, setSelected] = useState(false);
 
   const {
     register,
@@ -58,10 +65,10 @@ const RentModal: FC = ({ icon }: any) => {
       bedCount: 1,
       bathroomCount: 1,
       imageSrc: "",
-      multipleImageSrc1: "",
-      multipleImageSrc2: "",
-      multipleImageSrc3: "",
-      multipleImageSrc4: "",
+      multipleImagesOne: "",
+      multipleImagesTwo: "",
+      multipleImagesThree: "",
+      multipleImagesFour: "",
       amenities: [],
       standoutAmenities: [],
       price: 1,
@@ -70,8 +77,19 @@ const RentModal: FC = ({ icon }: any) => {
     },
   });
 
-  // bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:peer-checked:bg-emerald-700/10 dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-emerald-700 hover:text-emerald-700 dark:peer-checked:text-emerald-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700
+  // const { fields, append } = useFieldArray({
+  //   control,
+  //   name: "fieldArray",
+  // });
+  // const watchFieldArray = watch("fieldArray");
+  // const controlledFields = fields.map((field, index) => {
+  //   return {
+  //     ...field,
+  //     ...watchFieldArray[index],
+  //   };
+  // });
 
+  // bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:peer-checked:bg-emerald-700/10 dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-emerald-700 hover:text-emerald-700 dark:peer-checked:text-emerald-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700
   const category = watch("category");
   const location = watch("location");
   const guestCount = watch("guestCount");
@@ -79,10 +97,10 @@ const RentModal: FC = ({ icon }: any) => {
   const bedCount = watch("bedCount");
   const bathroomCount = watch("bathroomCount");
   const imageSrc = watch("imageSrc");
-  const multipleImageSrc1 = watch("multipleImageSrc1");
-  const multipleImageSrc2 = watch("multipleImageSrc2");
-  const multipleImageSrc3 = watch("multipleImageSrc3");
-  const multipleImageSrc4 = watch("multipleImageSrc4");
+  const multipleImagesOne = watch("multipleImagesOne");
+  const multipleImagesTwo = watch("multipleImagesTwo");
+  const multipleImagesThree = watch("multipleImagesThree");
+  const multipleImagesFour = watch("multipleImagesFour");
 
   const Map = useMemo(
     () =>
@@ -225,7 +243,7 @@ const RentModal: FC = ({ icon }: any) => {
           title="Amenities"
           subtitle="What basic amenities does your place have?"
         />
-        <ul className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-track-emerald-900 scrollbar-thumb-emerald-300">
+        <ul className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-track-emerald-900 scrollbar-thumb-emerald-300 pb-2">
           {amenitiesItems.map((amenities) => (
             <li key={amenities.label}>
               <input
@@ -258,7 +276,7 @@ const RentModal: FC = ({ icon }: any) => {
           title="Standout Amenities"
           subtitle="What amenities do you have that standout?"
         />
-        <ul className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-track-emerald-900 scrollbar-thumb-emerald-300">
+        <ul className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-[50vh] overflow-y-auto scrollbar-thin scrollbar-track-emerald-900 scrollbar-thumb-emerald-300 pb-2">
           {standoutAmenitiesItems.map((items) => (
             <li key={items.label}>
               <input
@@ -308,20 +326,20 @@ const RentModal: FC = ({ icon }: any) => {
         />
         <div className="grid grid-cols-1 md:grid-cols-2 col-span-1">
           <ImagesUpload
-            value={multipleImageSrc1}
-            onChange={(value) => setCustomValue("multipleImageSrc1", value)}
+            value={multipleImagesOne}
+            onChange={(value) => setCustomValue("multipleImagesOne", value)}
           />
-          <ImagesUpload
-            value={multipleImageSrc2}
-            onChange={(value) => setCustomValue("multipleImageSrc2", value)}
+          <ImagesUploadTwo
+            value={multipleImagesTwo}
+            onChange={(value) => setCustomValue("multipleImagesTwo", value)}
           />
-          <ImagesUpload
-            value={multipleImageSrc3}
-            onChange={(value) => setCustomValue("multipleImageSrc3", value)}
+          <ImagesUploadThree
+            value={multipleImagesThree}
+            onChange={(value) => setCustomValue("multipleImagesThree", value)}
           />
-          <ImagesUpload
-            value={multipleImageSrc4}
-            onChange={(value) => setCustomValue("multipleImageSrc4", value)}
+          <ImagesUploadFour
+            value={multipleImagesFour}
+            onChange={(value) => setCustomValue("multipleImagesFour", value)}
           />
         </div>
       </div>
