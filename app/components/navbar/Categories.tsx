@@ -32,7 +32,6 @@ import { RiHotelFill } from "react-icons/ri";
 import CategoryBox from "../CategoryBox";
 import { usePathname, useSearchParams } from "next/navigation";
 import { IoIosBoat } from "react-icons/io";
-import { useRef } from "react";
 
 export const categories = [
   {
