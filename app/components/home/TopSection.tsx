@@ -17,7 +17,7 @@ const TopSection: FC = () => {
     {
       title: "Fancy boating",
       label: "Yachts",
-      image: "/images/yachts.jpg ",
+      image: "/images/yacht.jpg",
     },
     {
       title: "Snowboard/Ski in the mountains",
