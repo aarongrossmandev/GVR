@@ -15,14 +15,14 @@ const TopSection: FC = () => {
       image: "/images/islands.jpg",
     },
     {
-      title: "Snowboard/Ski in the mountains",
-      label: "Skiing",
-      image: "/images/mountains.jpg",
-    },
-    {
       title: "Fancy boating",
       label: "Yachts",
       image: "/images/yachts.jpg ",
+    },
+    {
+      title: "Snowboard/Ski in the mountains",
+      label: "Skiing",
+      image: "/images/mountains.jpg",
     },
     {
       title: "On the beach",
