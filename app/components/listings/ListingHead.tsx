@@ -52,7 +52,14 @@ const ListingHead: FC<ListingHeadProps> = ({
         </button>
         <div
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full md:w-2/3 h-[59vh] md:h-[82vh] hover:cursor-pointer transition relative"
+          className={`h-[59vh] md:h-[82vh] hover:cursor-pointer transition relative ${
+            !multipleImagesOne &&
+            !multipleImagesTwo &&
+            !multipleImagesThree &&
+            !multipleImagesFour
+              ? "md:w-full w-full"
+              : "md:w-2/3 w-full"
+          }`}
         >
           <Image
             src={imageSrc}
@@ -66,21 +73,30 @@ const ListingHead: FC<ListingHeadProps> = ({
         <div className="absolute top-5 right-5 z-30">
           <LikeButton listingId={id} currentUser={currentUser} />
         </div>
-        <div className="w-full md:w-1/3 hidden md:block">
+        <div
+          className={`w-full md:w-1/3 hidden ${
+            !multipleImagesOne &&
+            !multipleImagesTwo &&
+            !multipleImagesThree &&
+            !multipleImagesFour
+              ? "md:hidden"
+              : "md:block"
+          }`}
+        >
           <ListingImages
-            multipleImagesOne={multipleImagesOne || ""}
-            multipleImagesTwo={multipleImagesTwo || ""}
-            multipleImagesThree={multipleImagesThree || ""}
-            multipleImagesFour={multipleImagesFour || ""}
+            multipleImagesOne={multipleImagesOne}
+            multipleImagesTwo={multipleImagesTwo}
+            multipleImagesThree={multipleImagesThree}
+            multipleImagesFour={multipleImagesFour}
           />
         </div>
       </div>
       <div className="flex flex-row md:hidden w-full">
         <ListingImages
-          multipleImagesOne={multipleImagesOne || ""}
-          multipleImagesTwo={multipleImagesTwo || ""}
-          multipleImagesThree={multipleImagesThree || ""}
-          multipleImagesFour={multipleImagesFour || ""}
+          multipleImagesOne={multipleImagesOne}
+          multipleImagesTwo={multipleImagesTwo}
+          multipleImagesThree={multipleImagesThree}
+          multipleImagesFour={multipleImagesFour}
         />
       </div>
       {isOpen && (
