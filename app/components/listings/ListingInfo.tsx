@@ -78,17 +78,22 @@ const ListingInfo: FC<ListingInfoProps> = ({
         <div className="flex flex-row items-center gap-4 font-light text-neutral-800 dark:text-slate-200 text-sm md:text-lg">
           <p className="flex items-center">
             {guestCount} guests{" "}
-            <MdOutlineFamilyRestroom className="ml-1" size={18} />{" "}
+            <MdOutlineFamilyRestroom
+              className="md:ml-1 hidden md:block"
+              size={18}
+            />{" "}
           </p>
           <p className="flex items-center">
-            {roomCount} rooms <BsDoorOpenFill className="ml-1" size={17} />
+            {roomCount} rooms{" "}
+            <BsDoorOpenFill className="md:ml-1 hidden md:block" size={17} />
           </p>
           <p className="flex items-center">
-            {bedCount} beds <GiBed className="ml-1 mt-1" size={22} />{" "}
+            {bedCount} beds{" "}
+            <GiBed className="md:ml-1 md:mt-1 hidden md:block" size={22} />{" "}
           </p>
           <p className="flex items-center">
             {bathroomCount} bathrooms{" "}
-            <GiBathtub className="ml-1 mb-1" size={20} />{" "}
+            <GiBathtub className="md:ml-1 md:mb-1 hidden md:block" size={20} />{" "}
           </p>
         </div>
       </div>

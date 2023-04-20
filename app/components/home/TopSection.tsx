@@ -32,7 +32,7 @@ const TopSection: FC = () => {
   ];
 
   return (
-    <div className="-mt-10 max-w-[1750px] dark:bg-zinc-900 bg-slate-200 mx-auto xl:px-20 md:px-10 sm:px-2 px-4 relative z-[2] rounded-lg py-8">
+    <div className="md:-mt-14 max-w-[1750px] dark:bg-zinc-900 bg-slate-200 mx-auto xl:px-20 md:px-10 sm:px-2 px-4 relative z-[2] rounded-xl py-8">
       <Heading
         title="Find your ideal getaway"
         subtitle="Book homes with space, the right amenities, and area"

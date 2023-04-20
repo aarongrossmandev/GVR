@@ -255,7 +255,7 @@ const RentModal: FC = () => {
               />
               <label
                 htmlFor={amenities.label}
-                className="flex items-center justify-center w-11/12 p-5 border-2 rounded-lg cursor-pointer hover:text-emerald-800 dark:hover:text-emerald-300 hover:border-emerald-700 dark:hover:border-emerald-300 hover:bg-emerald-300/10 dark:hover:bg-emerald-900/20 peer-checked:shadow-lg peer-checked:shadow-emerald-800 dark:peer-checked:shadow-emerald-300 dark:peer-checked:bg-emerald-800/20 peer-checked:bg-emerald-300/10"
+                className="flex items-center justify-center w-11/12 p-5 border-2 rounded-lg cursor-pointer hover:text-emerald-800 dark:hover:text-emerald-300 hover:border-emerald-700 dark:hover:border-emerald-300 hover:bg-emerald-300/10 dark:hover:bg-emerald-900/20 peer-checked:shadow-sm peer-checked:shadow-emerald-800 dark:peer-checked:shadow-emerald-300 dark:peer-checked:bg-emerald-800/20 peer-checked:bg-emerald-300/10"
               >
                 <div className="flex flex-col justify-center items-center">
                   <AmenitiesInput icon={amenities.icon} />
@@ -288,7 +288,7 @@ const RentModal: FC = () => {
               />
               <label
                 htmlFor={items.label}
-                className="flex items-center justify-center w-11/12 p-5 border-2 rounded-lg cursor-pointer hover:text-emerald-800 dark:hover:text-emerald-300 hover:border-emerald-700 dark:hover:border-emerald-300 hover:bg-emerald-300/10 dark:hover:bg-emerald-900/20 peer-checked:shadow-lg peer-checked:shadow-emerald-800 dark:peer-checked:shadow-emerald-300 dark:peer-checked:bg-emerald-800/20 peer-checked:bg-emerald-300/10"
+                className="flex items-center justify-center w-11/12 p-5 border-2 rounded-lg cursor-pointer hover:text-emerald-800 dark:hover:text-emerald-300 hover:border-emerald-700 dark:hover:border-emerald-300 hover:bg-emerald-300/10 dark:hover:bg-emerald-900/20 peer-checked:shadow-sm peer-checked:shadow-emerald-800 dark:peer-checked:shadow-emerald-300 dark:peer-checked:bg-emerald-800/20 peer-checked:bg-emerald-300/10"
               >
                 <div className="flex flex-col justify-center items-center">
                   <StandoutAmenitiesInput icon={items.icon} />

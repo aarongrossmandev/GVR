@@ -152,7 +152,6 @@ export const categories = [
 ];
 
 const Categories: FC = ({}) => {
-  const [slide, setSlide] = useState(false);
   const params = useSearchParams();
   const category = params?.get("category");
   const pathname = usePathname();
