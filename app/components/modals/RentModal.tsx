@@ -77,19 +77,6 @@ const RentModal: FC = () => {
     },
   });
 
-  // const { fields, append } = useFieldArray({
-  //   control,
-  //   name: "fieldArray",
-  // });
-  // const watchFieldArray = watch("fieldArray");
-  // const controlledFields = fields.map((field, index) => {
-  //   return {
-  //     ...field,
-  //     ...watchFieldArray[index],
-  //   };
-  // });
-
-  // bg-white border-2 border-gray-200 rounded-lg cursor-pointer dark:peer-checked:bg-emerald-700/10 dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-emerald-700 hover:text-emerald-700 dark:peer-checked:text-emerald-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700
   const category = watch("category");
   const location = watch("location");
   const guestCount = watch("guestCount");
@@ -137,7 +124,7 @@ const RentModal: FC = () => {
       .post("/api/listings", data)
       .then(() => {
         toast.success("Congragulations your listing has been created!");
-        router.refresh();
+        router.push("/properties");
         reset();
         setStep(STEPS.CATEGORY);
         rentModal.onClose();

@@ -88,14 +88,14 @@ const SliderCards: FC = () => {
       <button
         onClick={scrollLeft}
         role="button"
-        className="hidden md:block absolute top-1/2 left-5 border border-black dark:border-white rounded-full p-1 transition hover:border-emerald-700 dark:hover:border-emerald-400 hover:bg-emerald-900/20 hover:scale-95 z-[5]"
+        className="hidden md:block absolute top-1/2 left-5 border border-black dark:border-white rounded-full p-1 transition hover:border-emerald-800 dark:hover:border-emerald-400 hover:bg-emerald-900/20 hover:scale-95 z-[5]"
       >
         <BiChevronLeft className="w-8 h-8" />
       </button>
       <button
         onClick={scrollRight}
         role="button"
-        className="hidden md:block absolute top-1/2 right-5 border border-black dark:border-white rounded-full p-1 transition hover:border-emerald-700 dark:hover:border-emerald-400 hover:bg-emerald-900/20 hover:scale-95 z-[5]"
+        className="hidden md:block absolute top-1/2 right-5 border border-black dark:border-white rounded-full p-1 transition hover:border-emerald-800 dark:hover:border-emerald-400 hover:bg-emerald-900/20 hover:scale-95 z-[5]"
       >
         <BiChevronRight className="w-8 h-8" />
       </button>

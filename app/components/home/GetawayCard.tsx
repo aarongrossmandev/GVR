@@ -44,7 +44,7 @@ const GetawayCard: FC<GetawayCardProps> = ({ label, image, title }) => {
   return (
     <div
       onClick={handleClick}
-      className="relative h-[40vh] w-full rounded-xl border-2 dark:border-emerald-400 border-emerald-700 col-span-1 md:last-of-type:col-span-2 md:last-of-type:h-[60vh] cursor-pointer group overflow-hidden transition"
+      className="relative h-[40vh] w-full rounded-xl border-2 dark:border-emerald-400 border-emerald-800 col-span-1 md:last-of-type:col-span-2 md:last-of-type:h-[60vh] cursor-pointer group overflow-hidden transition"
     >
       <Image
         src={image}

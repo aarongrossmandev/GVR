@@ -42,7 +42,7 @@ const CategoryCard: FC<CategoryCardProps> = ({ label, image }) => {
   return (
     <div
       onClick={handleClick}
-      className="relative h-[40vh] aspect-[4/5] rounded-xl group transition overflow-hidden min-w-[200px] md:min-w-[250px] hover:cursor-pointer border-2 border-emerald-700 dark:border-emerald-400"
+      className="relative h-[40vh] aspect-[4/5] rounded-xl group transition overflow-hidden min-w-[200px] md:min-w-[250px] hover:cursor-pointer border-2 border-emerald-800 dark:border-emerald-400"
     >
       <Image
         src={image}
