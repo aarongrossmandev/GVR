@@ -47,7 +47,6 @@ interface ListingInfoProps {
   roomCount: number;
   bathroomCount: number;
   bedCount: number;
-  category: { icon: IconType; label: string; description: string } | undefined;
   locationValue: string;
   amenities: string[];
   standoutAmenities: string[];
@@ -57,7 +56,6 @@ const ListingInfo: FC<ListingInfoProps> = ({
   amenities,
   bathroomCount,
   bedCount,
-  category,
   description,
   guestCount,
   locationValue,
@@ -139,14 +137,7 @@ const ListingInfo: FC<ListingInfoProps> = ({
         ))}
       </div>
       <hr />
-      {category && (
-        <ListingCategory
-          icon={category.icon}
-          label={category.label}
-          description={category.description}
-        />
-      )}
-      <hr />
+
       <h4 className="font-bold text-2xl tracking-wider">About this property</h4>
       <p className="text-lg font-light text-neutral-500 dark:text-slate-200 tracking-wider">
         {description}

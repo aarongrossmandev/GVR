@@ -13,6 +13,7 @@ import { HiXMark } from "react-icons/hi2";
 interface ListingHeadProps {
   title: string;
   imageSrc: string;
+  category: string;
   multipleImagesOne?: string;
   multipleImagesTwo?: string;
   multipleImagesThree?: string;
@@ -25,6 +26,7 @@ interface ListingHeadProps {
 const ListingHead: FC<ListingHeadProps> = ({
   id,
   imageSrc,
+  category,
   multipleImagesOne,
   multipleImagesTwo,
   multipleImagesThree,
@@ -41,6 +43,7 @@ const ListingHead: FC<ListingHeadProps> = ({
     <>
       <Heading
         title={title}
+        categoryTitle={category}
         subtitle={`${location?.region} / ${location?.label}`}
       />
       <div className="flex flex-row w-full h-[60vh] md:h-[82vh] overflow-y-hidden md:overflow-y-auto scrollbar-thin scrollbar-track-emerald-900 scrollbar-thumb-emerald-300 rounded-xl relative gap-x-2 gap-y-2 md:gap-y-0">

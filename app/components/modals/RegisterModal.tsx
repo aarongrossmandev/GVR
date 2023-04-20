@@ -13,8 +13,10 @@ import Input from "../inputs/Input";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import { useRouter } from "next/navigation";
 
 const RegisterModal: FC = () => {
+  const router = useRouter();
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
@@ -34,19 +36,33 @@ const RegisterModal: FC = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
 
-    axios
-      .post("/api/register", data)
-      .then(() => {
-        toast.success("Successfully registered");
-        registerModal.onClose();
-        loginModal.onOpen();
+    axios.post("/api/register", data).then(() => {
+      toast.success("Successfully registered");
+      signIn("credentials", {
+        ...data,
+        redirect: false,
       })
-      .catch((error) => {
-        toast.error("Something went wrong");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+        .then((callback) => {
+          setIsLoading(false);
+
+          if (callback?.ok) {
+            toast.success("Logged in");
+            router.refresh();
+            loginModal.onClose();
+          }
+
+          if (callback?.error) {
+            toast.error(callback.error);
+          }
+          registerModal.onClose();
+        })
+        .catch((error) => {
+          toast.error("Something went wrong");
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    });
   };
 
   const toggleModal = useCallback(() => {
