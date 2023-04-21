@@ -246,7 +246,9 @@ const RentModal: FC = () => {
               >
                 <div className="flex flex-col justify-center items-center">
                   <AmenitiesInput icon={amenities.icon} />
-                  <div className="w-full text-sm">{amenities.label}</div>
+                  <div className="w-full text-xs sm:text-sm whitespace-nowrap">
+                    {amenities.label}
+                  </div>
                 </div>
               </label>
             </li>
@@ -279,7 +281,9 @@ const RentModal: FC = () => {
               >
                 <div className="flex flex-col justify-center items-center">
                   <StandoutAmenitiesInput icon={items.icon} />
-                  <div className="w-full text-sm">{items.label}</div>
+                  <div className="w-full text-xs sm:text-sm whitespace-nowrap">
+                    {items.label}
+                  </div>
                 </div>
               </label>
             </li>
