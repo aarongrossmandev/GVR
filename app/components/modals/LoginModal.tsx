@@ -87,6 +87,14 @@ const LoginModal: FC = () => {
       <hr />
       <Button
         outline
+        img="/images/demo-user.jpg"
+        label="Demo User"
+        onClick={() =>
+          signIn("credentials", { email: "demo@demo.com", password: "demo" })
+        }
+      />
+      <Button
+        outline
         label="Continue with Google"
         icon={FcGoogle}
         onClick={() => signIn("google")}

@@ -46,7 +46,7 @@ const ListingHead: FC<ListingHeadProps> = ({
         categoryTitle={category}
         subtitle={`${location?.region} / ${location?.label}`}
       />
-      <div className="flex flex-row w-full h-[60vh] md:h-[82vh] overflow-y-hidden md:overflow-y-auto scrollbar-thin scrollbar-track-emerald-900 scrollbar-thumb-emerald-300 rounded-xl relative gap-x-2 gap-y-2 md:gap-y-0">
+      <div className="flex flex-row w-full h-[60vh] md:h-[83vh] overflow-y-hidden md:overflow-y-auto scrollbar-thin scrollbar-track-emerald-900 scrollbar-thumb-emerald-300 rounded-xl relative gap-x-2 gap-y-2 md:gap-y-0">
         <button
           onClick={() => router.back()}
           className="absolute dark:bg-emerald-400 bg-emerald-800 rounded-full top-5 left-5 p-1 z-10 flex items-center justify-center text-center text-white"

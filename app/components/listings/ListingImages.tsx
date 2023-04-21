@@ -26,7 +26,7 @@ const ListingImages: FC<ListingImagesProps> = ({
       {multipleImagesOne && (
         <div
           onClick={() => setOpenOne(!openOne)}
-          className="relative md:w-full aspect-video h-[19vh] rounded-xl hover:cursor-pointer transition"
+          className="relative md:w-full aspect-video h-[20vh] rounded-xl hover:cursor-pointer transition"
         >
           <Image
             src={multipleImagesOne}
@@ -65,7 +65,7 @@ const ListingImages: FC<ListingImagesProps> = ({
       {multipleImagesTwo && (
         <div
           onClick={() => setOpenTwo(!openTwo)}
-          className="relative md:w-full aspect-video h-[19vh] rounded-xl hover:cursor-pointer transition"
+          className="relative md:w-full aspect-video h-[20vh] rounded-xl hover:cursor-pointer transition"
         >
           <Image
             src={multipleImagesTwo}
@@ -104,7 +104,7 @@ const ListingImages: FC<ListingImagesProps> = ({
       {multipleImagesThree && (
         <div
           onClick={() => setOpenThree(!openThree)}
-          className="relative md:w-full aspect-video h-[19vh] rounded-xl hover:cursor-pointer transition"
+          className="relative md:w-full aspect-video h-[20vh] rounded-xl hover:cursor-pointer transition"
         >
           <Image
             src={multipleImagesThree}
@@ -142,8 +142,8 @@ const ListingImages: FC<ListingImagesProps> = ({
       )}
       {multipleImagesFour && (
         <div
-          onClick={() => setOpenThree(!openFour)}
-          className="w-[300px] h-[19vh] relative"
+          onClick={() => setOpenFour(!openFour)}
+          className="relative md:w-full aspect-video h-[20vh] rounded-xl hover:cursor-pointer transition"
         >
           <Image
             src={multipleImagesFour}

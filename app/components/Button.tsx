@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { FC } from "react";
 import { IconType } from "react-icons/lib";
 
@@ -9,6 +10,7 @@ interface ButtonProps {
   outline?: boolean;
   small?: boolean;
   icon?: IconType;
+  img?: string;
   type?: "submit" | "reset" | "button";
 }
 
@@ -19,6 +21,7 @@ const Button: FC<ButtonProps> = ({
   outline,
   small,
   type,
+  img,
   icon: Icon,
 }) => {
   return (
@@ -39,6 +42,15 @@ const Button: FC<ButtonProps> = ({
       `}
     >
       {Icon && <Icon size={24} className="absolute left-4 top-2" />}
+      {img && (
+        <Image
+          src={img}
+          alt="demo user avatar image"
+          height={30}
+          width={30}
+          className="rounded-full aspect-square absolute left-4 top-2"
+        />
+      )}
       {label}
     </button>
   );

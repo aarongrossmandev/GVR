@@ -28,6 +28,5 @@ export async function DELETE(
       userId: currentUser.id,
     },
   });
-
   return NextResponse.json(listing);
 }
