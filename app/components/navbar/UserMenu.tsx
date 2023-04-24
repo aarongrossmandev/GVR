@@ -62,6 +62,7 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
           <ul className="flex flex-col cursor-pointer">
             {currentUser ? (
               <>
+                <MenuItem onClick={() => router.push("/")} label="Home" />
                 <MenuItem
                   onClick={() => router.push("/vacations")}
                   label="Vacations"
@@ -91,6 +92,7 @@ const UserMenu: FC<UserMenuProps> = ({ currentUser }) => {
               </>
             ) : (
               <>
+                <MenuItem onClick={() => router.push("/")} label="Home" />
                 <MenuItem
                   onClick={() => router.push("/vacations")}
                   label="Vacations"

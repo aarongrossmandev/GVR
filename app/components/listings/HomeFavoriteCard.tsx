@@ -10,59 +10,17 @@ import Button from "../Button";
 
 interface HomeFavoriteCardProps {
   data: SafeListing;
-  reservation?: SafeReservation;
-  onAction?: (id: string) => void;
-  disabled?: boolean;
-  actionLabel?: string;
-  actionId?: string;
+
   currentUser?: SafeUser | null;
 }
 
 const HomeFavoriteCard: FC<HomeFavoriteCardProps> = ({
   data,
-  reservation,
-  onAction,
-  disabled,
-  actionId = "",
-  actionLabel,
+
   currentUser,
 }) => {
   const router = useRouter();
   const { getByValue } = useCountries();
-
-  const location = getByValue(data.locationValue);
-
-  const handleCancel = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation();
-
-      if (disabled) {
-        return;
-      }
-
-      onAction?.(actionId);
-    },
-    [onAction, actionId, disabled]
-  );
-
-  const price = useMemo(() => {
-    if (reservation) {
-      return reservation.totalPrice;
-    }
-
-    return data.price;
-  }, [reservation, data.price]);
-
-  const reservationDate = useMemo(() => {
-    if (!reservation) {
-      return null;
-    }
-
-    const start = new Date(reservation.startDate);
-    const end = new Date(reservation.endDate);
-
-    return `${format(start, "PP")} - ${format(end, "PP")}`;
-  }, [reservation]);
 
   return (
     <div
@@ -78,10 +36,6 @@ const HomeFavoriteCard: FC<HomeFavoriteCardProps> = ({
       <div className="absolute top-1/4 right-8">
         <LikeButton listingId={data.id} currentUser={currentUser} />
       </div>
-      <div className="bg-black/20 absolute inset-0 w-full h-full z-1" />
-      <p className="bold text-lg md:text-lg text-white max-w-[150px] mx-auto text-center absolute inset-0 flex items-center justify-center">
-        {data.title}
-      </p>
     </div>
   );
 };

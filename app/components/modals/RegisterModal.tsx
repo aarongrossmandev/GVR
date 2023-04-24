@@ -105,6 +105,14 @@ const RegisterModal: FC = () => {
     <div className="flex flex-col gap-4 mt-3">
       <hr />
       <Button
+        outline
+        img="/images/demo-user.jpg"
+        label="Demo User"
+        onClick={() =>
+          signIn("credentials", { email: "demo@demo.com", password: "demo" })
+        }
+      />
+      <Button
         type="button"
         outline
         label="Continue with Google"
